@@ -19,6 +19,10 @@ public class OrderService {
         return orderRepository.findAll().stream().map(OrderAdapter::getProductDTO).toList();
     }
 
+    public List<OrderDTO> getById(String id) {
+        return orderRepository.findById(id).stream().map(OrderAdapter::getProductDTO).toList();
+    }
+
     public OrderDTO add(OrderDTO orderDTO) {
         Order customer = orderRepository.save(OrderAdapter.getProduct(orderDTO));
         return OrderAdapter.getProductDTO(customer);

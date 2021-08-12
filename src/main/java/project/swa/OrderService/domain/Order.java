@@ -8,7 +8,7 @@ import project.swa.OrderService.service.CustomerDTO;
 import java.util.Date;
 import java.util.List;
 
-@Data
+//@Data
 @Document(collection = "ORDER")
 public class Order {
     @Id
@@ -27,5 +27,37 @@ public class Order {
 
     public void confirm(){
         status = OrderStatus.PLACED;
+    }
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public OrderStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(OrderStatus status) {
+        this.status = status;
+    }
+
+    public CustomerDTO getCustomerDTO() {
+        return customerDTO;
+    }
+
+    public void setCustomerDTO(CustomerDTO customerDTO) {
+        this.customerDTO = customerDTO;
     }
 }

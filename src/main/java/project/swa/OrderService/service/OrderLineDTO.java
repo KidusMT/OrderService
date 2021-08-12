@@ -1,14 +1,11 @@
-package project.swa.OrderService.domain;
-
-import lombok.Data;
-import project.swa.OrderService.service.ProductDTO;
+package project.swa.OrderService.service;
 
 //@Data
-public class OrderLine {
+public class OrderLineDTO {
     private int quantity;
     private ProductDTO product;
 
-    public OrderLine(int quantity, ProductDTO product) {
+    public OrderLineDTO(int quantity, ProductDTO product) {
         this.quantity = quantity;
         this.product = product;
     }

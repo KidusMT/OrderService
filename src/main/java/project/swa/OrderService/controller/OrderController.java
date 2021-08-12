@@ -34,6 +34,22 @@ public class OrderController {
         return null;
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<List<OrderDTO>> getCustomer(@PathVariable String id) {
+        logger.info("Calling GET /order");
+        List<OrderDTO> customerDTO1 = orderService.getById(id);
+        try {
+            if (customerDTO1 != null) {
+                return new ResponseEntity<>(customerDTO1, HttpStatus.CREATED);
+            } else {
+                throw new OrderNotFoundException("Product not found");
+            }
+        } catch (OrderNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     @PostMapping
     public ResponseEntity<OrderDTO> addCustomer(@RequestBody OrderDTO customerDTO) {
         logger.info("Calling POST /order");
